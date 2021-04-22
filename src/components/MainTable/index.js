@@ -3,8 +3,6 @@ import { useTable, usePagination, useSortBy } from "react-table";
 import "./table.css";
 
 const MainTable = ({ data, columns }) => {
-  console.log(data);
-
   const {
     getTableProps,
     getTableBodyProps,
