@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useProducts } from "./Hooks/useProducts";
 
+import { useProducts } from "./Hooks/useProducts";
+import Home from "./Home";
 import "./App.css";
 
 function App() {
@@ -12,8 +13,6 @@ function App() {
   const onChangeHandler = (e) => {
     setKeyword(e.target.value);
   };
-
-  console.log(data);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -35,18 +34,9 @@ function App() {
       <div>
         {data &&
           data.map((a) =>
-            a.searchResult.map((b) =>
-              b.item.map((c, i) => (
-                <ul key={i} style={{ listStyle: "none" }}>
-                  <li>{c.title}</li>
-                  {c.galleryURL && (
-                    <li key={c.id}>
-                      {c.galleryURL && <img src={c.galleryURL} alt="Product" />}
-                    </li>
-                  )}
-                </ul>
-              ))
-            )
+            a.searchResult.map((product, i) => (
+              <Home key={i} data={product.item} />
+            ))
           )}
       </div>
     </div>
