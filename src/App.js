@@ -14,6 +14,8 @@ function App() {
     setKeyword(e.target.value);
   };
 
+  console.log(data);
+
   const onClickHandler = (e) => {
     e.preventDefault();
     setQuery(keyword);

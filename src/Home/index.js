@@ -6,23 +6,22 @@ function Home({ data }) {
     () => [
       {
         Header: "Products",
-        // Second group columns
         columns: [
           {
             Header: "Id",
-            accessor: "data.itemId[0]",
+            accessor: "itemId",
           },
           {
             Header: "Location",
-            accessor: "data.location",
+            accessor: "location",
           },
           {
             Header: "Country",
-            accessor: "data.country",
+            accessor: "country",
           },
           {
             Header: "Title",
-            accessor: "data.title",
+            accessor: "title",
           },
         ],
       },
