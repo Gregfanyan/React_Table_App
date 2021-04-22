@@ -1,9 +1,5 @@
 export const COLUMNS = [
   {
-    Header: "Id",
-    accessor: "itemId",
-  },
-  {
     Header: "Location",
     accessor: "location",
   },
