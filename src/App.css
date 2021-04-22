@@ -36,3 +36,54 @@
     transform: rotate(360deg);
   }
 }
+
+input[type="text"] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  box-sizing: border-box;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 5px 20px rgb(153, 176, 201);
+  outline: none;
+}
+
+.input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+button {
+  backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #aee 0%, #8cc 49%, #599 51%, #8cc 100%);
+  border-radius: 15px;
+  border: 1px solid #6aa;
+  border-width: 1px 1px 1px 1px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1),
+    0px 1px 3px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 15px;
+  font-family: Helvetica Neue;
+  font-weight: 800;
+  font-style: normal;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+  background-color: #77a809;
+}
+button:active {
+  position: relative;
+  top: 1px;
+  background: grey;
+}
