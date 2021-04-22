@@ -1,5 +1,5 @@
 import React from "react";
-import { useTable, usePagination } from "react-table";
+import { useTable, usePagination, useSortBy } from "react-table";
 import "./table.css";
 
 const MainTable = ({ data, columns }) => {
@@ -25,6 +25,7 @@ const MainTable = ({ data, columns }) => {
       data,
       initialState: { pageIndex: 0 },
     },
+    useSortBy,
     usePagination
   );
 
@@ -34,13 +35,23 @@ const MainTable = ({ data, columns }) => {
     <>
       <table {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-              ))}
-            </tr>
-          ))}
+          {headerGroups &&
+            headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                    {column.render("Header")}
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? "🔽"
+                          : "🔼"
+                        : ""}
+                    </span>
+                  </th>
+                ))}
+              </tr>
+            ))}
         </thead>
         <tbody {...getTableBodyProps()}>
           {page.map((row, i) => {
