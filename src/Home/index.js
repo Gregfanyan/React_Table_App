@@ -1,33 +1,8 @@
 import React, { useMemo } from "react";
 import MainTable from "../components/MainTable";
+import { COLUMNS } from "../components/Columns";
 function Home({ data }) {
-    
-  const columns = useMemo(
-    () => [
-      {
-        Header: "Products",
-        columns: [
-          {
-            Header: "Id",
-            accessor: "itemId",
-          },
-          {
-            Header: "Location",
-            accessor: "location",
-          },
-          {
-            Header: "Country",
-            accessor: "country",
-          },
-          {
-            Header: "Title",
-            accessor: "title",
-          },
-        ],
-      },
-    ],
-    []
-  );
+  const columns = useMemo(() => COLUMNS, []);
 
   return (
     <div>

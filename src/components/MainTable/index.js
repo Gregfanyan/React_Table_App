@@ -1,5 +1,6 @@
 import React from "react";
 import { useTable } from "react-table";
+import "./table.css";
 
 const MainTable = ({ data, columns }) => {
   console.log(data);
