@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 
 export const useProducts = (keyword, query) => {
   const [data, setData] = useState([]);
+  const [firstHit, setFirstHit] = useState(false);
 
   const URL = `services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=WandoInt-217b-42d8-a699-e79808dd505e&keywords=${query}&RESPONSE-DATA-FORMAT=JSON`;
 
@@ -15,11 +16,12 @@ export const useProducts = (keyword, query) => {
     const json = await res.json();
     const data = json.findItemsByKeywordsResponse;
     setData(data);
+    setFirstHit(true);
   }, [URL]);
 
   useEffect(() => {
     fetchData();
   }, [fetchData, query]);
 
-  return [data, fetchData];
+  return [data, firstHit];
 };

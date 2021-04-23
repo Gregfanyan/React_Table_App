@@ -17,8 +17,8 @@ export const COLUMNS = [
     Filter: ColumnFilter,
   },
   {
-    Header: "Selling Status",
-    accessor: "sellingStatus.currentPrice",
+    Header: "Price",
+    accessor: "sellingStatus.currentPrice._price_",
     Filter: ColumnFilter,
   },
 ];

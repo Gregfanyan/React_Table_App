@@ -71,7 +71,7 @@ const MainTable = ({ data, columns, defaultColumn }) => {
           })}
         </tbody>
       </table>
-      <div>
+      <div className='pagination'>
         <span>
           Page{" "}
           <strong>

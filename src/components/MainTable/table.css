@@ -26,3 +26,7 @@ table {
     background-color: #892596;
     color: white;
   }
+
+  .pagination > * {
+    margin: 10px;
+}
