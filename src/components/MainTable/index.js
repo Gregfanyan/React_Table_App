@@ -1,8 +1,8 @@
 import React from "react";
-import { useTable, usePagination, useSortBy } from "react-table";
+import { useTable, usePagination, useSortBy, useFilters } from "react-table";
 import "./table.css";
 
-const MainTable = ({ data, columns }) => {
+const MainTable = ({ data, columns, defaultColumn }) => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -22,7 +22,9 @@ const MainTable = ({ data, columns }) => {
       columns,
       data,
       initialState: { pageIndex: 0 },
+      defaultColumn,
     },
+    useFilters,
     useSortBy,
     usePagination
   );
@@ -46,6 +48,9 @@ const MainTable = ({ data, columns }) => {
                           : "🔼"
                         : ""}
                     </span>
+                    <div>
+                      {column.canFilter ? column.render("Filter") : null}
+                    </div>
                   </th>
                 ))}
               </tr>
