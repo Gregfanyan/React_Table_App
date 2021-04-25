@@ -7,8 +7,8 @@ import "./App.css";
 function App() {
   const [keyword, setKeyword] = useState("");
   const [query, setQuery] = useState("apple");
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState();
+  const [maxPrice, setMaxPrice] = useState();
 
   const [data, firstHit] = useProducts(query, minPrice, maxPrice);
 

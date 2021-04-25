@@ -63,7 +63,6 @@ const MainTable = ({ data, columns, defaultColumn }) => {
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   if (cell.column.Header.includes("Price")) {
-                    // console.log(cell.value.map((v) => v.currentPrice.map((p) => p.__value__)))
                     return (
                       <td key={cell}>
                         {cell.value.map((v) =>
@@ -101,7 +100,7 @@ const MainTable = ({ data, columns, defaultColumn }) => {
                 : 0;
               gotoPage(pageNumber);
             }}
-            style={{ width: "50px" }}
+            style={{ width: "80px" }}
           />
         </span>
         <select

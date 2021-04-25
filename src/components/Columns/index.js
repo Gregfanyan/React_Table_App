@@ -12,14 +12,14 @@ export const COLUMNS = [
     disableFilters: true,
   },
   {
-    Header: "Title",
-    accessor: "title",
-    Filter: ColumnFilter,
-  },
-  {
     Header: "Price",
     accessor: "sellingStatus",
     Filter: ColumnFilter,
     disableFilters: true,
+  },
+  {
+    Header: "Title",
+    accessor: "title",
+    Filter: ColumnFilter,
   },
 ];
