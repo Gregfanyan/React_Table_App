@@ -18,7 +18,8 @@ export const COLUMNS = [
   },
   {
     Header: "Price",
-    accessor: "sellingStatus.currentPrice._price_",
+    accessor: "sellingStatus",
     Filter: ColumnFilter,
+    disableFilters: true,
   },
 ];

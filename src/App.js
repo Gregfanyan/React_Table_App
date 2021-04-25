@@ -10,7 +10,7 @@ function App() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
-  const [data, firstHit] = useProducts(keyword, query);
+  const [data, firstHit] = useProducts(keyword, query, minPrice, maxPrice);
 
   const onChangeHandler = (e) => {
     setKeyword(e.target.value);
@@ -23,7 +23,7 @@ function App() {
   };
 
   const maxPriceOnChangeHandler = (e) => {
-    setMaxPrice(e.target.value);
+    setMaxPrice(parseInt(e.target.value));
   };
 
   const onClickHandler = (e) => {
@@ -35,30 +35,6 @@ function App() {
       alert("Input field is empty");
     }
   };
-
-  const filterProductPrices = (priceRangeOne, priceRangeTwo) => {
-    data.forEach((p) => {
-      p.searchResult.forEach((i) => {
-        i.item.forEach((i) => {
-          i.sellingStatus.forEach((s) => {
-            s.currentPrice.filter((p) => {
-              parseInt(p.__value__);
-              if (
-                parseInt(p.__value__) >= priceRangeOne &&
-                parseInt(p.__value__) <= priceRangeTwo
-              ) {
-                console.log("matching prices", p.__value__);
-              } else {
-                console.log("not matching prices", p.__value__);
-              }
-            });
-          });
-        });
-      });
-    });
-  };
-
-  console.log(filterProductPrices(minPrice, maxPrice));
 
   return (
     <div className="App">
@@ -85,11 +61,7 @@ function App() {
       />
       <React.Fragment>
         {data && data.length > 0 ? (
-          data.map((a) =>
-            a.searchResult.map((product, i) => (
-              <Home key={i} data={product.item} />
-            ))
-          )
+          <Home data={data} />
         ) : firstHit ? (
           <div>No Data</div>
         ) : (

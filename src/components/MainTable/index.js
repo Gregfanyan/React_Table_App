@@ -62,6 +62,16 @@ const MainTable = ({ data, columns, defaultColumn }) => {
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
+                  if (cell.column.Header.includes("Price")) {
+                    // console.log(cell.value.map((v) => v.currentPrice.map((p) => p.__value__)))
+                    return (
+                      <td>
+                        {cell.value.map((v) =>
+                          v.currentPrice.map((p) => p.__value__)
+                        )}
+                      </td>
+                    );
+                  }
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
@@ -71,7 +81,7 @@ const MainTable = ({ data, columns, defaultColumn }) => {
           })}
         </tbody>
       </table>
-      <div className='pagination'>
+      <div className="pagination">
         <span>
           Page{" "}
           <strong>
