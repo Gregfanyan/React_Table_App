@@ -10,7 +10,7 @@ function App() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
-  const [data, firstHit] = useProducts(keyword, query, minPrice, maxPrice);
+  const [data, firstHit] = useProducts(query, minPrice, maxPrice);
 
   const onChangeHandler = (e) => {
     setKeyword(e.target.value);
@@ -36,6 +36,11 @@ function App() {
     }
   };
 
+  const clearInput = () => {
+    setMinPrice(0);
+    setMaxPrice(0);
+  };
+
   return (
     <div className="App">
       <div>
@@ -59,6 +64,7 @@ function App() {
         onChange={maxPriceOnChangeHandler}
         value={maxPrice}
       />
+      <button onClick={clearInput}>Clear</button>
       <React.Fragment>
         {data && data.length > 0 ? (
           <Home data={data} />

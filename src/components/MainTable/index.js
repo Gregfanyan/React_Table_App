@@ -65,7 +65,7 @@ const MainTable = ({ data, columns, defaultColumn }) => {
                   if (cell.column.Header.includes("Price")) {
                     // console.log(cell.value.map((v) => v.currentPrice.map((p) => p.__value__)))
                     return (
-                      <td>
+                      <td key={cell}>
                         {cell.value.map((v) =>
                           v.currentPrice.map((p) => p.__value__)
                         )}
@@ -73,7 +73,9 @@ const MainTable = ({ data, columns, defaultColumn }) => {
                     );
                   }
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td key={cell} {...cell.getCellProps()}>
+                      {cell.render("Cell")}
+                    </td>
                   );
                 })}
               </tr>
