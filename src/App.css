@@ -38,7 +38,7 @@
 }
 
 input[type="text"] {
-  width: 85%;
+  width: 80%;
   padding: 10px 20px;
   margin: 15px 0 0;
   box-sizing: border-box;
@@ -99,4 +99,10 @@ button:active {
   position: relative;
   top: 1px;
   background: grey;
+}
+
+@media screen and (max-width: 767px) {
+  input[type="text"]:first-child {
+    width: 50%;
+  }
 }
